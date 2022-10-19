@@ -83,3 +83,37 @@ def erro():
     for letra in errou:
         print(letra)
         time.sleep(0.25)
+
+def salva_partida(desafiante, competidor, palavra_chave, vencedor):
+    file = open("historico.txt", "r")
+    partidas_anteriores = file.readlines()
+    file.close()
+    file = open("historico.txt", "w")
+    for item in partidas_anteriores:
+        file.write(item)
+    if vencedor == "Desafiante":
+        file.write("Palavra Chave: " + palavra_chave + " - Vencedor: Desafiante " + desafiante + ", Perdedor: Competidor: " + competidor + "\n")
+    else:
+        file.write("Palavra Chave: " + palavra_chave + " - Vencedor: Competidor " + competidor + ", Perdedor: Desafiante: " + desafiante + "\n")
+    file.close() 
+
+def exibe_historico():
+    file = open("historico.txt", "r")
+    conteudo = file.read()
+    print(conteudo)
+    file.close()
+
+def jogar_novamente():
+    try:
+        while (True):
+            opj = int(input("Deseja jogar novamente? Sim(1) Não(2): "))
+            if opj == 1:
+                break
+            elif opj == 2:
+                jogar = False
+                break
+            else:
+                print("Insira um número válido!")
+        return jogar
+    except:
+        print("Você deve inserir um número!")
