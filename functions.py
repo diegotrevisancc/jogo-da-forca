@@ -104,16 +104,19 @@ def exibe_historico():
     file.close()
 
 def jogar_novamente():
-    try:
-        while (True):
-            opj = int(input("Deseja jogar novamente? Sim(1) Não(2): "))
-            if opj == 1:
-                break
-            elif opj == 2:
-                jogar = False
-                break
-            else:
-                print("Insira um número válido!")
-        return jogar
-    except:
-        print("Você deve inserir um número!")
+   while True:
+        try:
+            while True:
+                jogar = int(input("Deseja jogar novamente? Sim(1) Não(2): "))
+                if jogar == 1:
+                    jogar = False
+                    return jogar
+                    break
+                elif jogar == 2:
+                    jogar = False
+                    return jogar
+                    break
+                else:
+                    print("Insira apenas 1 ou 2!")
+        except:
+            print("Insira um número!")
