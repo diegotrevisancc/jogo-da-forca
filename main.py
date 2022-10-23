@@ -1,4 +1,4 @@
-from functions import limpar_tela, op_invalida, exibe_jogo, mostra_dica, compara_chute, gera_palavra_censurada, exibe_jogo_sem_dica, salva_partida, exibe_historico, jogar_novamente
+from functions import limpar_tela, configura_jogo, gera_palavra_censurada, exibe_jogo, exibe_jogo_sem_dica,  mostra_dica, compara_chute, op_invalida, salva_partida, exibe_historico, jogar_novamente
 jogar = True
 while jogar:
     nomes = True
@@ -14,11 +14,12 @@ while jogar:
 
     limpar_tela()
     
-    palavra_chave = input(desafiante + " insira a palavra chave: ")
-    
-    dica_1 = input(desafiante + " insira a dica número 1: ")
-    dica_2 = input(desafiante + " insira a dica número 2: ")
-    dica_3 = input(desafiante + " insira a dica número 3: ")
+    palavra_chave_dicas = configura_jogo(desafiante)
+    palavra_chave = palavra_chave_dicas[0]
+    dica_1 = palavra_chave_dicas[1]
+    dica_2 = palavra_chave_dicas[2]
+    dica_3 = palavra_chave_dicas[3]
+
     rodada = True
     limpar_tela()
     vencedor = ""
